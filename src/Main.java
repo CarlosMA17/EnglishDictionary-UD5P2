@@ -15,7 +15,9 @@ public class Main {
 
         switch (option) {
             case 1:
-
+                String[] words = {"hola q tal", "hola"};
+                Words word = new Words(words);
+                word.aviableInitialLetter("hola");
                 break;
             case 2:
                 break;
