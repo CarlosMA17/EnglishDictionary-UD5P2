@@ -1,3 +1,5 @@
+package Words.WordsClasificator;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -18,13 +20,20 @@ public class Words {
     }
 
     public void addWord(String word) {
+        String[] newWordList = new String[wordsList.length + 1];
+        for (int i = 0; i < wordsList.length +1; i++) {
 
-        this.wordsList[wordsList.length] = word;
+            if (i == wordsList.length) {
+                newWordList[i] = word;
+            } else {
+                newWordList[i] = wordsList[i];
+            }
+        }
     }
 
     public void removeWord(String word) {
         for (int i = 0; i < wordsList.length; i++) {
-            if (wordsList[i].equals("word")) {
+            if (wordsList[i].equals(word)) {
                 wordsList[i] = null;
             }
         }

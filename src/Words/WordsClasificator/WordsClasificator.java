@@ -1,4 +1,4 @@
-package WordsClasificator;
+package Words.WordsClasificator;
 
 public class WordsClasificator {
 
