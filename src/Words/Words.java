@@ -1,11 +1,13 @@
-package Words.WordsClasificator;
+package Words;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public class Words {
-    private String[] wordsList;
+    private String[] wordsList = new String[0];
+
 
     public Words(String[] wordsList) {
         this.wordsList = wordsList;
@@ -19,22 +21,35 @@ public class Words {
         this.wordsList = palabras;
     }
 
+
     public void addWord(String word) {
         String[] newWordList = new String[wordsList.length + 1];
-        for (int i = 0; i < wordsList.length +1; i++) {
+
+        for (int i = 0; i < newWordList.length; i++) {
 
             if (i == wordsList.length) {
                 newWordList[i] = word;
+                System.out.println("la palabra \'" + word + "\' se ha guardado correctamente");
+
+                //crear filtro palabras repetidas
+                //sanitanizador
             } else {
                 newWordList[i] = wordsList[i];
             }
         }
+        wordsList = newWordList;
+
+        Arrays.sort(wordsList);
+        System.out.println(wordsList);
     }
 
     public void removeWord(String word) {
         for (int i = 0; i < wordsList.length; i++) {
             if (wordsList[i].equals(word)) {
                 wordsList[i] = null;
+                System.out.println("la palabra \'" + word + "\' ha sido eliminada");
+            } else {
+                System.out.println("la palabra no esta almacenada");
             }
         }
     }
@@ -42,7 +57,7 @@ public class Words {
     public void searchWord(String word) {
         for (int i = 0; i < wordsList.length; i++) {
             if (wordsList[i].equals(word)) {
-                System.out.println(word);
+                System.out.println("se ha encontrado la palabra \'" + word + "\'");
             }
         }
     }
@@ -61,6 +76,7 @@ public class Words {
                 words.add(wordsList[i]);
             }
         }
+        //crear solicitud de inicial
     }
 
 

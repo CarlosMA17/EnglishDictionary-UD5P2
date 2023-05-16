@@ -1,6 +1,5 @@
-import Words.WordsClasificator.Words;
-
 import java.util.Scanner;
+import Words.Words;
 
 public class Main {
 
