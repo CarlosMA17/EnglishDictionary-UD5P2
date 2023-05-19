@@ -4,7 +4,7 @@ import Words.Words;
 public class Main {
 
     public static void main(String[] args) {
-        String[] words = {"hola q tal", "hola", "ola"};
+        String[] words = {};
         Words word = new Words(words);
         boolean exit = false;
         while (!exit) {
@@ -33,12 +33,11 @@ public class Main {
                     word.searchWord(searchWord);
                     break;
                 case 4:
-                    String aviableWord = scStr.nextLine();
-                    word.aviableInitialLetter(aviableWord);
+                    word.aviableInitialLetter();
                     break;
                 case 5:
-                    String sameInitial = scInt.nextLine();
-                    word.sameInitialWords('h');
+                    String sameInitial = scStr.nextLine();
+                    word.sameInitialWords(sameInitial);
                     break;
                 case 6:
                     exit = true;

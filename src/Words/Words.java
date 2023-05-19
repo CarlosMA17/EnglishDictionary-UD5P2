@@ -26,11 +26,9 @@ public class Words {
         String[] newWordList = new String[wordsList.length + 1];
 
         for (int i = 0; i < newWordList.length; i++) {
-
             if (i == wordsList.length) {
-                newWordList[i] = word;
                 System.out.println("la palabra \'" + word + "\' se ha guardado correctamente");
-
+                newWordList[i] = word;
                 //crear filtro palabras repetidas
                 //sanitanizador
             } else {
@@ -40,7 +38,6 @@ public class Words {
         wordsList = newWordList;
 
         Arrays.sort(wordsList);
-        System.out.println(wordsList);
     }
 
     public void removeWord(String word) {
@@ -48,35 +45,38 @@ public class Words {
             if (wordsList[i].equals(word)) {
                 wordsList[i] = null;
                 System.out.println("la palabra \'" + word + "\' ha sido eliminada");
-            } else {
-                System.out.println("la palabra no esta almacenada");
             }
         }
     }
 
     public void searchWord(String word) {
         for (int i = 0; i < wordsList.length; i++) {
-            if (wordsList[i].equals(word)) {
+            if (wordsList[i] == null) {
+                System.out.println("palabra no encontrada");
+            } else if (wordsList[i].equals(word)) {
                 System.out.println("se ha encontrado la palabra \'" + word + "\'");
             }
         }
     }
 
-    public void aviableInitialLetter(String word) {
+    public void aviableInitialLetter() {
         for (int i = 0; i < wordsList.length; i++) {
             char initialLetter = wordsList[i].toUpperCase(Locale.ROOT).charAt(0);
             System.out.println(initialLetter);;
         }
     }
 
-    public void sameInitialWords(char initial) {
+    public void sameInitialWords(String initial) {
         List<String> words = new ArrayList<String>();
         for (int i = 0; i < wordsList.length; i++) {
-            if (initial == wordsList[i].charAt(0)) {
+            if (initial.equals(wordsList[i].substring(0))) {
                 words.add(wordsList[i]);
             }
         }
-        //crear solicitud de inicial
+        System.out.println("las palabras son: ");
+        for (int i = 0; i < words.size(); i++) {
+            System.out.println(words.get(i));
+        }
     }
 
 
